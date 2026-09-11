@@ -1,0 +1,23 @@
+def generate_subsets(nums, current, index):
+
+    # Base case
+    if index == len(nums):
+        print(current)
+        return
+
+    # Exclude current element
+    generate_subsets(nums, current, index + 1)
+
+    # Include current element
+    current.append(nums[index])
+    generate_subsets(nums, current, index + 1)
+
+    # Backtrack
+    current.pop()
+
+
+nums = [1, 2, 3]
+current = []
+
+print("Subsets are:")
+generate_subsets(nums, current, 0)
