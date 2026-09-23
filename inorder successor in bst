@@ -1,0 +1,17 @@
+class TreeNode:
+ def __init__(self, val=0, left=None, right=None):
+ self.val = val
+ self.left = left
+ self.right = right
+def inorder_successor(root, p):
+ successor = None
+ while root:
+ if p.val >= root.val:
+ root = root.right
+ else:
+ successor = root
+ root = root.left
+ return successor
+root = TreeNode(2, TreeNode(1), TreeNode(3))
+ans = inorder_successor(root, root.left)
+print(ans.val if ans else None)
